@@ -68,3 +68,8 @@ Deliberately no:
 - Runtime-heavy tooling
 
 This is intentional restraint rather than omission.
+
+## License
+
+All rights reserved.
+Content and design are not licensed for reuse.
