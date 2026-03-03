@@ -15,7 +15,7 @@ This project represents a shift from page-level front-end work toward system-lev
 - Progressive enhancement
 - Accessible component patterns
 - Minimal JavaScript by default
-- The goal is not complexity — it is clarity, maintainability and longevity.
+- Clarity, maintainability and longevity is the goal.
 
 ## Philosophy
 
@@ -26,7 +26,7 @@ This site follows a few core principles:
 
 - No unnecessary frameworks
 - Minimal runtime JavaScript
-- Lean CSS with clear responsibility
+- Lean CSS
 - Static-first architecture
 - Build tooling only where it adds real value
 
@@ -37,7 +37,6 @@ The current implementation is intentionally static. Future iterations may explor
 - Optimised image formats (WebP)
 - Intentional preload strategy for critical assets
 - No heavy JS frameworks
-- Avoidance of unnecessary polyfills (Modernizr removed)
 - Minimal dependency footprint
 
 The aim is predictable, fast loading across real-world networks.
