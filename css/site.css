@@ -886,7 +886,7 @@ h5 {
   height: 14px;
 }
 
-.panel-has-bg--pink .underline-wiggly:after {
+.panel-has-bg--pink .underline-wave:after {
   background: var(--clr-white);
 }
 
