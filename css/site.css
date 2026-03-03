@@ -7,7 +7,7 @@
   --clr-ink: #222;
   --clr-blue: #042d93;
   --clr-pink: #f7d5ca;
-  --clr-slate: #738290;
+  --clr-slate: #909ca7;
   --clr-white: #fff;
   --clr-black: #000;
 
@@ -763,24 +763,6 @@ h5 {
   color: var(--panel-ink);
 }
 
-.content__header h2:after {
-  content: "";
-  text-align: center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top: 0.1em;
-  height: 8px;
-  background-image: url(../img/wiggle-pink.svg);
-  background-repeat: repeat-x;
-  background-size: 25px;
-}
-
-.panel-has-bg--pink .content__header h2:after {
-  background-image: url(../img/wiggle-blue.svg);
-}
-
 .content__header h3 {
   color: color-mix(in srgb, var(--panel-ink), transparent 45%);
   font-family: "Merriweather", serif;
@@ -868,6 +850,44 @@ h5 {
     margin-right: 2.2em;
     margin-left: 0;
   }
+}
+
+.underline-wave {
+  position: relative;
+}
+.underline-wave:after {
+  display: block;
+  transform: translateY(0.2em);
+  content: "";
+  --wave-length: 8px;
+  --wave-thickness: 1px;
+  --wave-amplitute: 1;
+  --p: calc(var(--wave-amplitute) * var(--wave-length));
+  --R: calc(
+    var(--wave-length) *
+      sqrt(var(--wave-amplitute) * var(--wave-amplitute) + 1) +
+      var(--wave-thickness)/2
+  );
+
+  --_g:
+    #0000 calc(99% - var(--wave-thickness)),
+    #000 calc(101% - var(--wave-thickness)) 99%, #0000 101%;
+  -webkit-mask:
+    radial-gradient(var(--R) at left 50% bottom calc(-1 * var(--p)), var(--_g))
+      calc(50% - 2 * var(--wave-length))
+      calc(50% - var(--wave-length) / 2 - var(--wave-thickness) / 2) /
+      calc(4 * var(--wave-length))
+      calc(var(--wave-length) + var(--wave-thickness)) repeat-x,
+    radial-gradient(var(--R) at left 50% top calc(-1 * var(--p)), var(--_g)) 50%
+      calc(50% + var(--wave-length) / 2 + var(--wave-thickness) / 2) /
+      calc(4 * var(--wave-length))
+      calc(var(--wave-length) + var(--wave-thickness)) repeat-x;
+  background: var(--clr-pink);
+  height: 14px;
+}
+
+.panel-has-bg--pink .underline-wiggly:after {
+  background: var(--clr-white);
 }
 
 .achievements-list {
