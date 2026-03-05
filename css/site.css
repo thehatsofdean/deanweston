@@ -399,12 +399,13 @@ h5 {
 /* PAGE ELEMENTS */
 
 .panel-intro__name {
+  display: block;
   color: var(--panel-ink);
   text-transform: uppercase;
   font-family: var(--font-accent);
   font-weight: 300;
-  font-size: 1.5em;
-  margin: 0;
+  font-size: 0.8em;
+  margin: 0 0 1em 0;
   z-index: 1;
 }
 
@@ -412,14 +413,14 @@ h5 {
   color: var(--panel-accent);
   z-index: 1;
   font-family: "Merriweather", serif;
-  font-size: 3em;
+  font-size: 1.3em;
   line-height: 1.2em;
   margin: 0;
 }
 
 @media only screen and (min-width: 768px) {
   .panel__text--big {
-    font-size: 3.5em;
+    font-size: 1.8em;
   }
 }
 
@@ -798,6 +799,41 @@ h5 {
   border-radius: 10px;
   top: 32%;
   right: -1.4em;
+}
+
+.role__keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+  padding: 0;
+  list-style: none;
+}
+
+.role__keywords li {
+  font-family: var(--font-accent);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--clr-blue);
+  border-radius: 3px;
+  background: transparent;
+  position: relative;
+}
+
+.role__keywords li:before {
+  content: "";
+  position: absolute;
+  /* background-color: #f7d5ca; */
+  top: 4px;
+  left: 4px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: transparent;
+  background-size: 3px 3px;
+  background-repeat: repeat;
+  background-image: url("../img/dot.svg");
 }
 
 @media only screen and (min-width: 768px) {
