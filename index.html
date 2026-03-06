@@ -19,36 +19,64 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "person",
-        "name": "Dean Weston",
-        "jobTitle": "Front-End Developer & Digital Consultant",
-        "url": "https://www.deanweston.co.uk",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "University of Leicester",
-          "url": "https://le.ac.uk"
-        },
-        "knowsAbout": [
-          "Sitecore CMS",
-          "Headless CMS",
-          "Azure Dev Ops",
-          "Contensis CMS",
-          "Higher Education Digital Strategy",
-          "CMS Architecture",
-          "Digital Transformation",
-          "Accessibility (WCAG 2.2)",
-          "Front-End Engineering",
-          "JavaScript",
-          "Performance Optimisation",
-          "Google Analytics 4",
-          "Design Systems"
-        ],
-        "sameAs": [
-          "https://www.linkedin.com/in/dean-weston-61b23716/",
-          "https://github.com/thehatsofdean"
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://www.deanweston.co.uk/#deanweston",
+            "name": "Dean Weston",
+            "jobTitle": "Front-End Developer & Digital Consultant",
+            "url": "https://www.deanweston.co.uk",
+            "mainEntityOfPage": "https://www.deanweston.co.uk",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "University of Leicester",
+              "url": "https://le.ac.uk"
+            },
+            "knowsAbout": [
+              "Sitecore CMS",
+              "Headless CMS",
+              "Azure DevOps",
+              "Contensis CMS",
+              "Higher Education Digital Strategy",
+              "CMS Architecture",
+              "Digital Transformation",
+              "Accessibility (WCAG 2.2)",
+              "Front-End Engineering",
+              "JavaScript",
+              "Performance Optimisation",
+              "Google Analytics 4",
+              "Design Systems"
+            ],
+            "sameAs": [
+              "https://www.linkedin.com/in/dean-weston-61b23716/",
+              "https://github.com/thehatsofdean"
+            ]
+          },
+
+          {
+            "@type": "AboutPage",
+            "@id": "https://www.deanweston.co.uk/#about",
+            "url": "https://www.deanweston.co.uk",
+            "name": "About Dean Weston",
+            "about": {
+              "@id": "https://www.deanweston.co.uk/#deanweston"
+            }
+          },
+
+          {
+            "@type": "WebSite",
+            "@id": "https://www.deanweston.co.uk/#website",
+            "name": "Dean Weston",
+            "url": "https://www.deanweston.co.uk",
+            "author": {
+              "@id": "https://www.deanweston.co.uk/#deanweston"
+            }
+          }
         ]
       }
     </script>
+    <link rel="me" href="https://www.linkedin.com/in/dean-weston-61b23716/" />
+    <link rel="me" href="https://github.com/thehatsofdean" />
     <link
       rel="preload"
       as="image"
