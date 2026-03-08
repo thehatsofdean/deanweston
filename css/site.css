@@ -656,8 +656,15 @@ h5 {
 }
 
 .panel {
-  padding: 4em;
+  padding: 4em 1.75em;
 }
+
+@media only screen and (min-width: 768px) {
+  .panel {
+    padding: 4em 3em;
+  }
+}
+
 .panel-has-bg {
   --panel-bg: transparent;
   --panel-ink: var(--clr-ink);
