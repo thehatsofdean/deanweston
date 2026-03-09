@@ -1,0 +1,26 @@
+{
+  "name": "deanweston",
+  "version": "1.0.0",
+  "description": "This site is intentionally simple in its output, but deliberate in its structure and performance characteristics. It acts both as a personal portfolio and as a sandbox for architectural thinking around scalable front-end systems.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thehatsofdean/deanweston.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/thehatsofdean/deanweston/issues"
+  },
+  "homepage": "https://github.com/thehatsofdean/deanweston#readme",
+  "dependencies": {
+    "astro": "^5.18.0"
+  },
+  "devDependencies": {}
+}

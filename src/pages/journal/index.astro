@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("journal", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Journal">
+       <h1 class="visually-hidden">The Thinking Cap</h1>
+    <section class="panel">
+        <div class="grid-wrapper content">
+
+          <div class="content-col">
+            {posts.length === 0 ? (
+        <p>No posts yet.</p>
+      ) : (
+        posts.map((post) => (
+            <article class="article">
+              <a href={`/journal/${post.slug}/`} class="article__heading">{post.data.title}</a>
+              <p class="article__date">{post.data.pubDate.toDateString()}</p>
+              {post.data.description && <p class="article__desc">{post.data.description}</p>}
+            </article>
+          ))
+      )}
+          </div>
+        </div>
+      </section>
+    </BaseLayout>

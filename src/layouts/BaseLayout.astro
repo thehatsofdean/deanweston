@@ -1,0 +1,148 @@
+---
+const { title } = Astro.props;
+---
+
+<html class="no-js" lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>{title ? `${title} | Dean Weston` : "Dean Weston"}</title>
+    <meta
+      name="description"
+      content="Front end developer and digital consultant specialising in enterprise content management systems, headless architecture, accessibility, performance and higher education digital transformation"
+    />
+    <meta name="author" content="Dean Weston" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://www.deanweston.co.uk",
+            "name": "Dean Weston",
+            "description": "Senior front-end developer specialising in CMS architecture, accessibility and digital platforms.",
+            "jobTitle": "Front-End Developer & Digital Consultant",
+            "url": "https://www.deanweston.co.uk",
+            "mainEntityOfPage": "https://www.deanweston.co.uk",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "University of Leicester",
+              "url": "https://le.ac.uk"
+            },
+            "knowsAbout": [
+              "Sitecore CMS",
+              "Headless CMS",
+              "Azure DevOps",
+              "Contensis CMS",
+              "Higher Education Digital Strategy",
+              "CMS Architecture",
+              "Digital Transformation",
+              "Accessibility (WCAG 2.2)",
+              "Front-End Engineering",
+              "JavaScript",
+              "Performance Optimisation",
+              "Google Analytics 4",
+              "Design Systems"
+            ],
+            "sameAs": [
+              "https://www.linkedin.com/in/dean-weston-61b23716/",
+              "https://github.com/thehatsofdean"
+            ]
+          },
+
+          {
+            "@type": "ProfilePage",
+            "@id": "https://www.deanweston.co.uk",
+            "url": "https://www.deanweston.co.uk",
+            "mainEntity": {
+              "@id": "https://www.deanweston.co.uk"
+            }
+          },
+
+          {
+            "@type": "AboutPage",
+            "@id": "https://www.deanweston.co.uk/#about",
+            "url": "https://www.deanweston.co.uk",
+            "name": "About Dean Weston",
+            "about": {
+              "@id": "https://www.deanweston.co.uk/#deanweston"
+            }
+          },
+
+          {
+            "@type": "WebSite",
+            "@id": "https://www.deanweston.co.uk/#website",
+            "name": "Dean Weston",
+            "url": "https://www.deanweston.co.uk",
+            "author": {
+              "@id": "https://www.deanweston.co.uk/#deanweston"
+            }
+          }
+        ]
+      }
+    </script>
+    <link rel="me" href="https://www.linkedin.com/in/dean-weston-61b23716/" />
+    <link rel="me" href="https://github.com/thehatsofdean" />
+    <link rel="alternate" hreflang="en-gb" href="https://deanweston.co.uk/" />
+    <link
+      rel="preload"
+      as="image"
+      href="/img/wayne-pop.webp"
+      fetchpriority="high"
+    />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png" />
+    <!-- Place favicon.ico in the root directory -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather:300,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <header>
+      <div class="header">
+        <div class="grid-wrapper content">
+          <div class="logo">
+            <div class="top hat stetson bounceInDown animated"></div>
+            <img
+              class="bottom specs bump animated"
+              src="/img/specs.svg"
+              width="60px"
+              height="20px"
+              alt="Dean's large Eric Morcambe style Spectacles"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+   </main>
+  <footer>
+      <div class="footer">
+        <div class="grid-wrapper content">
+          <div class="copyright content-col">
+            Copyright &copy; <span class="js-year"></span> - Dean Weston
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script is:inline src="/js/main.js"></script>
+  </body>
+</html>

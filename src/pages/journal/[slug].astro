@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("journal", ({ data }) => !data.draft);
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title}>
+<section
+        class="panel panel--intro panel-has-bg panel-has-bg--blue"
+      >
+        <div class="panel__image panel__image--wayne"></div>
+        <div class="grid-wrapper content">
+          <h1 class="content-col">
+            <span class="panel__text--big"
+              >{post.data.title}</span
+            >
+          </h1>
+        </div>
+      </section>
+      <p><a href="/journal/">← Back to The Thinking Cap</a></p>
+      <section class="panel">
+        <div class="grid-wrapper content">
+        <div class="content-col">
+      <p>{post.data.pubDate.toDateString()}</p>
+      <article>
+        <Content />
+      </article>
+      </div>
+      </div>
+      </section>
+</BaseLayout>
