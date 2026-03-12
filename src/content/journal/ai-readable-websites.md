@@ -1,5 +1,5 @@
 ---
-title: "Making Your Website AI-Readable"
+title: "How to Make Your Website AI-Readable"
 description: "As AI tools become a common way people find information, websites need to be structured so machines can understand, interpret and surface their content clearly."
 pubDate: 2026-03-09
 author: "Dean Weston"
@@ -12,7 +12,11 @@ Tools like ChatGPT, Gemini, Copilot and Perplexity are changing how people disco
 
 As a business owner or content creator this means your website is no longer just competing for clicks - It is also competing to be understood, trusted and surfaced by AI.
 
-## AI is becoming a default search behaviour
+**An AI-readable website is a website that uses clear structure, semantic HTML and structured data so that AI systems can understand, interpret and confidently surface its content in answers.**
+
+In practice this means making it easy for machines to understand what your content is about, who created it and how information on the page is organised.
+
+## How AI is Changing Search Behaviour
 
 For many people, AI is starting to feel like a natural first stop for finding things out.
 
@@ -55,17 +59,86 @@ Pages should use meaningful structure, not just generic containers everywhere.
 
 Good use of headings, landmarks, lists, articles and sections makes content easier to interpret.
 
-```html
-<main>
-  <article>
-    <header>
-      <h1>Making Your Website AI-Readable</h1>
-    </header>
+### Add structured data
 
-    <section>
-      <h2>How AI systems read content</h2>
-      <p>Clear structure helps machines understand hierarchy and meaning.</p>
-    </section>
-  </article>
-</main>
+Structured data helps machines understand what something is, not just the words on a page.
+
+Using Schema.org markup allows search engines and AI systems to interpret the entities on a page more confidently.
+
+Common examples include:
+
+- Person
+- Article
+- Organization
+- Product
+- Event
+- FAQPage
+
+For a blog article, the most useful types are usually Article and Person.
+
+Example:
+
+```html
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Making Your Website AI-Readable",
+    "author": {
+      "@type": "Person",
+      "name": "Dean Weston"
+    },
+    "datePublished": "2026-03-09",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Dean Weston"
+    }
+  }
+</script>
 ```
+
+This gives machines explicit signals about:
+
+- what the page represents
+- who authored it
+- when it was published
+- who is responsible for it
+
+Structured data does not change what users see, but it greatly improves how machines interpret the page.
+
+### Make authorship obvious
+
+Clear authorship is increasingly important. AI systems look for signals that help establish expertise and credibility, such as:
+
+- an identifiable author
+- author biography pages
+- consistent publishing topics
+- structured data describing the author
+- links to professional profiles
+
+For a personal site this might include a Person schema describing who you are and what you specialise in.
+
+### Build Content Around Questions People Ask
+
+AI interfaces often surface content that answers a clear question.
+
+This does not mean turning your entire website into a FAQ, but it does mean writing sections that clearly respond to common queries.
+
+For example:
+
+- What makes a website AI-readable?
+- How does structured data help AI understand a page?
+- What signals help AI trust a website?
+
+Content that answers questions clearly is easier for AI to summarise and reference.
+
+### Keep Your Website Technically Clean
+
+Technical quality still matters. AI systems favour sites that are easy to crawl and interpret. In many cases performance, SEO and accessibility best practice overlaps strongly with AI readability.
+
+## Key Takeaway for AI-Readable Websites
+
+There is no single trick to making a website AI-readable.
+The advantage goes to websites that are clear, structured and explicit about meaning.
+
+In many ways, the web standards that have always mattered — semantics, accessibility, structured data and good writing — are now more important than ever.

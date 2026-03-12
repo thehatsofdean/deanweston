@@ -1,4 +1,25 @@
 ---
+import { getCollection } from "astro:content";
+import { formatDate } from "../utils/date";
+
+// Get all journal posts
+const journalEntries = await getCollection("journal");
+
+// Sort newest first
+const sortedJournalEntries = journalEntries.sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+// Latest entry
+const latestJournalEntry = sortedJournalEntries[0];
+
+// Useful values for template
+const latestJournalTitle = latestJournalEntry?.data.title;
+const latestJournalSummary =
+  latestJournalEntry?.data.description || latestJournalEntry?.data.summary;
+const latestJournalUrl = latestJournalEntry
+  ? `/journal/${latestJournalEntry.slug}/`
+  : null;
 ---
 
 <html class="no-js" lang="en-GB">
@@ -120,23 +141,38 @@
     <header>
       <div class="header">
         <div class="grid-wrapper content">
+          <button class="burger js-menuTrigger">
+            <div class="menu-icon">
+              <span class="visually-hidden">Toggle Navigation</span>
+              <span class="menu-icon__line menu-icon__line--1"></span>
+              <span class="menu-icon__line menu-icon__line--2"></span>
+              <span class="menu-icon__line menu-icon__line--3"></span>
+            </div>
+          </button>
           <div class="logo">
             <div class="top hat stetson bounceInDown animated"></div>
-            <img
-              class="bottom specs bump animated"
-              src="/img/specs.svg"
-              width="60px"
-              height="20px"
-              alt="Dean's large Eric Morcambe style Spectacles"
-            />
+              <img
+                class="bottom specs bump animated"
+                src="/img/specs.svg"
+                width="60px"
+                height="20px"
+                alt="Dean's large Eric Morcambe style Spectacles"
+              />
+            </div>
+          <div class="menu">
+            <nav>
+              <ul>
+                <li><a href="/">About me</a></li>
+                <!--<li><a href="#">Work</a></li>-->
+                <li><a href="/journal">Journal</a></li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
     </header>
     <main id="main">
-      <section
-        class="panel panel--intro panel-has-bg panel-has-bg--blue flex-align flex-align--v"
-      >
+      <section class="panel panel--intro panel-has-bg panel-has-bg--blue panel--centered">
         <div class="panel__image panel__image--wayne"></div>
         <div class="grid-wrapper content">
           <h1 class="content-col">
@@ -157,8 +193,8 @@
             <h3>About me</h3>
           </div>
           <div class="content-col--2col content-col prose">
-            <p>
-              I’m a confident hat wearer (despite a statistically small head).
+            <p class="dropcap">
+              I am a confident hat wearer (despite a statistically small head).
               Not just physically — professionally too.
             </p>
             <p>
@@ -183,11 +219,7 @@
         </div>
       </section>
 
-      <section
-        id="offer"
-        class="panel panel--offer panel-has-bg panel-has-bg--blue js-set-che"
-        tabindex="-1"
-      >
+      <section id="offer" class="panel panel--offer panel-has-bg panel-has-bg--blue js-set-che"tabindex="-1">
         <div class="panel__image panel__image--che"></div>
         <div class="grid-wrapper content">
           <div class="content__header content-col">
@@ -202,6 +234,7 @@
                   class="hat trilby"
                   src="img/hat-trilby.svg"
                   alt="Dean's Trilby Hat"
+                  loading="lazy"
                 />
                 <h4 class="heading heading--small">Architect</h4>
               </div>
@@ -222,6 +255,7 @@
                   src="img/hat-bowler.svg"
                   style="height: 42px; top: 4px"
                   alt="Dean's Bowler hat"
+                  loading="lazy"
                 />
                 <h4 class="heading heading--small">Engineer</h4>
               </div>
@@ -241,6 +275,7 @@
                   class="hat stetson"
                   src="img/hat-stetson.svg"
                   alt="Dean's Stetson hat"
+                  loading="lazy"
                 />
                 <h4 class="heading heading--small">Sheriff</h4>
               </div>
@@ -485,8 +520,18 @@
           </div>
 
           <div class="content-col">
-            <p>I am currently in the process of creating a micro blog.</p>
-            <p>Check back soon for a short read...</p>
+            {latestJournalEntry ? (
+        <article class="card">
+          <h3>
+            <a href={latestJournalUrl}>{latestJournalTitle}</a>
+          </h3>
+
+          {latestJournalSummary && <p>{latestJournalSummary}</p>}
+
+        </article>
+      ) : (
+        <p>No journal entries yet.</p>
+      )}
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 ---
-const { title } = Astro.props;
+const { title, bodyClass } = Astro.props;
 ---
 
 <html class="no-js" lang="en-GB">
@@ -106,7 +106,7 @@ const { title } = Astro.props;
     />
     <link rel="stylesheet" href="/css/site.css" />
   </head>
-  <body>
+  <body class={bodyClass}>
     <a class="skip-link" href="#main">Skip to content</a>
     <!--[if lte IE 9]>
       <p class="browserupgrade">
@@ -115,18 +115,35 @@ const { title } = Astro.props;
         your experience and security.
       </p>
     <![endif]-->
-    <header>
+        <header>
       <div class="header">
         <div class="grid-wrapper content">
+          <button class="burger js-menuTrigger">
+            <div class="menu-icon">
+              <span class="visually-hidden">Toggle Navigation</span>
+              <span class="menu-icon__line menu-icon__line--1"></span>
+              <span class="menu-icon__line menu-icon__line--2"></span>
+              <span class="menu-icon__line menu-icon__line--3"></span>
+            </div>
+          </button>
           <div class="logo">
             <div class="top hat stetson bounceInDown animated"></div>
-            <img
-              class="bottom specs bump animated"
-              src="/img/specs.svg"
-              width="60px"
-              height="20px"
-              alt="Dean's large Eric Morcambe style Spectacles"
-            />
+              <img
+                class="bottom specs bump animated"
+                src="/img/specs.svg"
+                width="60px"
+                height="20px"
+                alt="Dean's large Eric Morcambe style Spectacles"
+              />
+            </div>
+          <div class="menu">
+            <nav>
+              <ul>
+                <li><a href="/">About me</a></li>
+                <!--<li><a href="#">Work</a></li>-->
+                <li><a href="/journal">Journal</a></li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>

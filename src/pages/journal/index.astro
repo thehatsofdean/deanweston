@@ -2,13 +2,27 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
 import { getCollection } from "astro:content";
+import { formatDate } from "../../utils/date";
 
 const posts = (await getCollection("journal", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <BaseLayout title="Journal">
-       <h1 class="visually-hidden">The Thinking Cap</h1>
+    <section
+        class="panel panel--intro panel-has-bg panel-has-bg--pink panel--centered"
+      >
+        <div class="panel__image panel__image--sherlock"></div>
+        <div class="grid-wrapper content">
+          <h1 class="content-col">
+            <span class="panel-intro__name">Dean Weston</span>
+            <span class="visually-hidden">&thinsp;&mdash;&thinsp;</span>
+            <span class="panel__text--big"
+              >The Thinking Cap</span
+            >
+          </h1>
+        </div>
+      </section>
     <section class="panel">
         <div class="grid-wrapper content">
 
@@ -19,7 +33,7 @@ const posts = (await getCollection("journal", ({ data }) => !data.draft))
         posts.map((post) => (
             <article class="article">
               <a href={`/journal/${post.slug}/`} class="article__heading">{post.data.title}</a>
-              <p class="article__date">{post.data.pubDate.toDateString()}</p>
+              <p class="article__date">{formatDate(post.data.pubDate)}</p>
               {post.data.description && <p class="article__desc">{post.data.description}</p>}
             </article>
           ))
