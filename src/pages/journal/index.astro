@@ -31,10 +31,20 @@ const posts = (await getCollection("journal", ({ data }) => !data.draft))
         <p>No posts yet.</p>
       ) : (
         posts.map((post) => (
-            <article class="article">
-              <a href={`/journal/${post.slug}/`} class="article__heading">{post.data.title}</a>
-              <p class="article__date">{formatDate(post.data.pubDate)}</p>
-              {post.data.description && <p class="article__desc">{post.data.description}</p>}
+            <article class="article underline-wave">
+              <h2 class="article__heading">
+                <a href={`/journal/${post.slug}/`}>{post.data.title}</a>
+              </h2>
+
+              <p class="article__date">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {formatDate(post.data.pubDate)}
+                </time>
+              </p>
+
+              {post.data.description && (
+                <p class="article__desc">{post.data.description}</p>
+              )}
             </article>
           ))
       )}

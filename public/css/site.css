@@ -201,6 +201,12 @@ h5 {
   /* For desktop: */
   .header {
     position: fixed;
+    pointer-events: none;
+  }
+
+  .header button.burger,
+  .header .menu > nav {
+    pointer-events: auto;
   }
 }
 
@@ -495,7 +501,9 @@ h5 {
   background: var(--clr-pink);
   color: white;
 }
-.j-entry__content.prose p > strong {
+
+.j-entry__content p:has(dfn) {
+  font-size: 1.1em;
   display: inline-block;
   margin-left: 0.5em;
   padding-left: 1.5em;
@@ -884,47 +892,49 @@ h5 {
 a {
   color: var(--clr-blue);
   text-decoration: none;
-  background-image: linear-gradient(
-    var(--clr-pink),
-    var(--clr-pink)
-  ); /* underline/fill color */
+
+  padding: 0 0.05em;
+
+  background-image: linear-gradient(var(--clr-pink), var(--clr-pink));
   background-repeat: no-repeat;
   background-position: 0 100%;
-  background-size: 100% 0.5em; /* underline height */
-  transition:
-    background-size 0.25s ease,
-    color 0.25s ease;
-  padding: 0 0.04em;
+  background-size: 100% 0.4em;
+
+  transition: background-size 0.25s ease;
+
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  z-index: 3;
 }
 
 a:hover,
 a:focus-visible {
-  outline: none;
   background-size: 100% 100%;
 }
 
 .article {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-areas:
+    "date"
+    "heading"
+    "desc";
+  margin-bottom: 1em;
 }
 
 .article__heading {
-  order: 2;
+  grid-area: heading;
   font-size: 2.3em;
-  display: inline-block;
-  align-self: flex-start;
+  margin: 0;
 }
+
 .article__date {
-  order: 1;
+  grid-area: date;
   text-transform: uppercase;
   font-family: var(--font-accent);
   font-size: 0.8em;
 }
+
 .article__desc {
-  order: 3;
+  grid-area: desc;
 }
 
 .underline-wave {

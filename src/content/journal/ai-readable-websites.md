@@ -3,16 +3,18 @@ title: "How to Make Your Website AI-Readable"
 description: "As AI tools become a common way people find information, websites need to be structured so machines can understand, interpret and surface their content clearly."
 pubDate: 2026-03-09
 author: "Dean Weston"
+readTime: "3-4"
 tags: ["AI", "SEO", "Structured Data", "Web Development", "Astro"]
 ---
 
 For years, websites have been optimised for search engines. Now they also need to be optimised for AI systems.
 
-Tools like ChatGPT, Gemini, Copilot and Perplexity are changing how people discover information online. Instead of scanning a page of links, people increasingly ask a question and expect a direct answer. This is in many ways the search experience we have expected all along - True satisficing.
+Tools like [ChatGPT](https://chat.openai.com) and [Perplexity](https://www.perplexity.ai) are changing how people discover information online. are changing how people discover information online. Instead of scanning a page of links, people increasingly ask a question and expect a direct answer. This is in many ways the search experience we have expected all along - True satisficing.
 
 As a business owner or content creator this means your website is no longer just competing for clicks - It is also competing to be understood, trusted and surfaced by AI.
 
-**An AI-readable website is a website that uses clear structure, semantic HTML and structured data so that AI systems can understand, interpret and confidently surface its content in answers.**
+An <dfn>AI-readable website</dfn> is a website that uses clear structure, semantic HTML and
+[structured data](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data) so that AI systems can understand, interpret and confidently surface its content in answers.
 
 In practice this means making it easy for machines to understand what your content is about, who created it and how information on the page is organised.
 
@@ -55,19 +57,17 @@ The good news is that the fundamentals are familiar. Many of the things that hel
 
 ### Use semantic HTML
 
-Pages should use meaningful structure, not just generic containers everywhere.
-
-Good use of headings, landmarks, lists, articles and sections makes content easier to interpret.
+Pages should use meaningful structure, not just generic containers everywhere. Good use of headings, landmarks, lists and sections helps machines interpret content. The MDN guide to [semantic HTML](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html) is a useful reference.
 
 ### Add structured data
 
 Structured data helps machines understand what something is, not just the words on a page.
 
-Using Schema.org markup allows search engines and AI systems to interpret the entities on a page more confidently.
+Using [Schema.org](https://schema.org) markup allows search engines and AI systems to interpret the entities on a page more confidently.
 
 Common examples include:
 
-- Person
+- [Person](https://schema.org/Person)
 - Article
 - Organization
 - Product
