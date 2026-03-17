@@ -1,4 +1,5 @@
 ---
+import "../styles/site.css";
 import { getCollection } from "astro:content";
 import { formatDate } from "../utils/date";
 
@@ -127,7 +128,9 @@ const latestJournalUrl = latestJournalEntry
       href="https://fonts.googleapis.com/css?family=Oswald:300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/site.css" />
+    <script>
+      import "../scripts/main.js";
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -576,6 +579,5 @@ const latestJournalUrl = latestJournalEntry
         </div>
       </div>
     </footer>
-    <script is:inline src="/js/main.js"></script>
   </body>
 </html>
