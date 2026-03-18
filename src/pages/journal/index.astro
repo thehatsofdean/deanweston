@@ -8,7 +8,7 @@ const posts = (await getCollection("journal", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<BaseLayout title="Journal">
+<BaseLayout title="The Thinking Cap" preloadImage="/img/sherlock-pop.webp">
     <section
         class="panel panel--intro panel-has-bg panel-has-bg--pink panel--centered"
       >

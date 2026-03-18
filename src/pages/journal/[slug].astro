@@ -16,7 +16,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={post.data.title} bodyClass="j-entry">
+<BaseLayout title={post.data.title} bodyClass="j-entry" preloadImage="/img/sherlock-pop.webp">
 
 
       <section
