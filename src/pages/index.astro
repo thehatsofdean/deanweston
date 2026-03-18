@@ -1,0 +1,423 @@
+---
+import "../styles/site.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { formatDate } from "../utils/date";
+
+// Get all journal posts
+const journalEntries = await getCollection("journal");
+
+// Sort newest first
+const sortedJournalEntries = journalEntries.sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+// Latest entry
+const latestJournalEntry = sortedJournalEntries[0];
+
+// Useful values for template
+const latestJournalTitle = latestJournalEntry?.data.title;
+const latestJournalSummary =
+  latestJournalEntry?.data.description || latestJournalEntry?.data.summary;
+const latestJournalUrl = latestJournalEntry
+  ? `/journal/${latestJournalEntry.slug}/`
+  : null;
+---
+
+<BaseLayout title="Front-End Developer &amp; Digital Consultant (Higher Education)">
+      <section class="panel panel--intro panel-has-bg panel-has-bg--blue panel--centered">
+        <div class="panel__image panel__image--wayne"></div>
+        <div class="grid-wrapper content">
+          <h1 class="content-col">
+            <span class="panel-intro__name">Dean Weston</span>
+            <span class="visually-hidden">&thinsp;&mdash;&thinsp;</span>
+            <span class="panel__text--big"
+              >CMS architect, web developer & East Midlands Hat Wearer of the
+              Year (1993).</span
+            >
+          </h1>
+        </div>
+      </section>
+
+      <section id="about" class="panel panel--about" tabindex="-1">
+        <div class="grid-wrapper content">
+          <div class="content__header content-col">
+            <h2 class="underline-wave">Under the hat</h2>
+            <h3>About me</h3>
+          </div>
+          <div class="content-col--2col content-col prose">
+            <p class="dropcap">
+              I am a confident hat wearer (despite a statistically small head).
+              Not just physically — professionally too.
+            </p>
+            <p>
+              I move comfortably between strategy, system design and hands-on
+              engineering, helping organisations build digital platforms that
+              are both elegant and sustainable.
+            </p>
+            <p>
+              With over a decade in the industry, my focus has shifted from
+              pages to systems — from visuals to governance.
+            </p>
+            <p>
+              I design scalable CMS architectures, accessible component
+              libraries and data-driven web experiences that perform under
+              real-world pressure.
+            </p>
+            <p>
+              Good digital work isn’t just how something looks on launch day.
+              It’s how well it functions, adapts and survives in year three.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="offer" class="panel panel--offer panel-has-bg panel-has-bg--blue js-set-che"tabindex="-1">
+        <div class="panel__image panel__image--che"></div>
+        <div class="grid-wrapper content">
+          <div class="content__header content-col">
+            <h2 class="underline-wave">Hats worn</h2>
+            <h3>What I can offer</h3>
+          </div>
+
+          <div class="grid-wrapper content-col prose">
+            <div class="grid-span-4">
+              <div class="circle">
+                <img
+                  class="hat trilby"
+                  src="img/hat-trilby.svg"
+                  alt="Dean's Trilby Hat"
+                  loading="lazy"
+                />
+                <h4 class="heading heading--small">Architect</h4>
+              </div>
+              <div class="box box--ghost">
+                <p>Designing the structure behind the interface.</p>
+                <ul class="star-list">
+                  <li>CMS ecosystems</li>
+                  <li>Content modelling & information architecture</li>
+                  <li>Component systems</li>
+                  <li>Governance frameworks</li>
+                </ul>
+              </div>
+            </div>
+            <div class="grid-span-4">
+              <div class="circle">
+                <img
+                  class="hat bowler"
+                  src="img/hat-bowler.svg"
+                  style="height: 42px; top: 4px"
+                  alt="Dean's Bowler hat"
+                  loading="lazy"
+                />
+                <h4 class="heading heading--small">Engineer</h4>
+              </div>
+              <div class="box box--ghost">
+                <p>Building systems that perform under pressure.</p>
+                <ul class="star-list">
+                  <li>Component libraries</li>
+                  <li>Performance optimisation</li>
+                  <li>Analytics & data layer integration</li>
+                  <li>Structured data implementation</li>
+                </ul>
+              </div>
+            </div>
+            <div class="grid-span-4">
+              <div class="circle">
+                <img
+                  class="hat stetson"
+                  src="img/hat-stetson.svg"
+                  alt="Dean's Stetson hat"
+                  loading="lazy"
+                />
+                <h4 class="heading heading--small">Sheriff</h4>
+              </div>
+              <div class="box box--ghost">
+                <p>Keeping platforms compliant, consistent and sustainable.</p>
+                <ul class="star-list">
+                  <li>Accessibility (WCAG 2.2 AA)</li>
+                  <li>Design system governance</li>
+                  <li>Editorial workflows</li>
+                  <li>CMS lifecycle risk management</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel--work js-set-hardhat">
+        <div class="grid-wrapper content">
+          <div class="content__header content__header--left content-col">
+            <h2 class="underline-wave">Hard-Hat</h2>
+            <h3>Past work</h3>
+          </div>
+
+          <div class="content-col prose">
+            <p class="type-lead">
+              I've spent the majority of my career within higher education
+              digital teams, working inside complex CMS ecosystems and
+              multi-stakeholder environments.
+            </p>
+            <article class="role">
+              <h4>University of Leicester</h4>
+              <p class="role__meta font--accent">
+                <span class="role__title">Front-End Developer</span>
+                <span aria-hidden="true" class="visually-hidden">·</span>
+                <span class="role__duration">2022 – Present</span>
+              </p>
+              <p>
+                Reengineering and evolving features within a large-scale higher
+                education CMS estate, with a focus on accessibility, performance
+                and data-informed decision making.
+              </p>
+              <h5>Selected contributions</h5>
+              <ul>
+                <li>
+                  Modernised legacy components to improve accessibility
+                  compliance and Core Web Vitals performance
+                </li>
+                <li>
+                  Designed reusable CMS components aligned with structured
+                  content and design system principles
+                </li>
+                <li>
+                  Implemented analytics enhancements using GA4 and GTM to
+                  support measurable outcomes
+                </li>
+                <li>
+                  Delivered maintainable front-end solutions within a complex
+                  enterprise environment
+                </li>
+                <li>
+                  Improved user experience for University Chat bot interface
+                </li>
+              </ul>
+              <h5 class="visually-hidden">Tech & Skills Buzzwords</h5>
+              <ul class="role__keywords">
+                <li>Sitecore</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Javascript</li>
+                <li>ASP.Net</li>
+                <li>Razor</li>
+                <li>React</li>
+                <li>Node</li>
+              </ul>
+            </article>
+            <article class="role">
+              <h4>De Montfort University</h4>
+              <p class="role__meta font--accent">
+                <span class="role__title">Web Designer & Developer</span>
+                <span aria-hidden="true" class="visually-hidden">·</span>
+                <span class="role__duration">2019 – 2022</span>
+              </p>
+              <p>
+                Contributed to the evolution of the university’s digital estate,
+                delivering accessible and responsive web solutions within a
+                CMS-driven platform.
+              </p>
+              <h5>Selected contributions</h5>
+              <ul>
+                <li>
+                  Developed and maintained CMS templates and front-end
+                  components
+                </li>
+                <li>
+                  Improved accessibility and usability across key journeys
+                </li>
+                <li>Delivered recruitment and campaign-focused microsites</li>
+                <li>
+                  Supported structured CMS workflows and platform enhancements
+                </li>
+                <li>Contributed to performance optimisation initiatives</li>
+              </ul>
+              <h5 class="visually-hidden">Tech & Skills Buzzwords</h5>
+              <ul class="role__keywords">
+                <li>Contensis</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Javascript</li>
+                <li>ASP.Net</li>
+                <li>Razor</li>
+                <li>Google Analytics</li>
+              </ul>
+            </article>
+            <article class="role">
+              <h4 class="role__org">Birmingham City University</h4>
+              <p class="role__meta font--accent">
+                <span class="role__title">Web Interface Designer</span>
+                <span aria-hidden="true" class="visually-hidden">·</span>
+                <span class="role__duration">2012 – 2019</span>
+              </p>
+
+              <p>
+                Led user interface design and front-end standards across public
+                websites, intranet platforms and internal systems.
+              </p>
+
+              <h5 class="role__subheading">Selected contributions</h5>
+              <ul class="role__list">
+                <li>Designed and implemented a cross-platform design system</li>
+                <li>Authored front-end standards and documentation</li>
+                <li>Delivered bespoke CMS components and features</li>
+                <li>
+                  Balanced brand, accessibility and technical constraints across
+                  teams
+                </li>
+                <li>
+                  Improved user journeys across student-facing mobile app,
+                  website and other digital systems
+                </li>
+              </ul>
+              <h5 class="visually-hidden">Tech & Skills Buzzwords</h5>
+              <ul class="role__keywords">
+                <li>ASP.Net</li>
+                <li>Razor</li>
+                <li>Javascript</li>
+                <li>CSS</li>
+                <li>LESS</li>
+                <li>GIT</li>
+                <li>Xamarin.Forms</li>
+                <li>Scrum</li>
+              </ul>
+            </article>
+            <article class="role">
+              <h4 class="role__org">Coventry University</h4>
+
+              <p class="role__meta font--accent">
+                <span class="role__title">Web Designer</span>
+                <span aria-hidden="true" class="visually-hidden">·</span>
+                <span class="role__duration">2007 – 2012</span>
+              </p>
+              <p>
+                Joined during a major transition to Microsoft SharePoint as the
+                platform for internal and external communications.
+              </p>
+
+              <h5 class="role__subheading">Selected contributions</h5>
+              <ul class="role__list">
+                <li>
+                  Extended web content management capabilities within SharePoint
+                </li>
+                <li>
+                  Delivered scalable internal and external communication
+                  platforms
+                </li>
+                <li>
+                  Conceptualised and implemented digital marketing campaigns
+                  across web and emerging media
+                </li>
+                <li>Bridged marketing objectives with technical constraints</li>
+              </ul>
+              <h5 class="visually-hidden">Tech & Skills Buzzwords</h5>
+              <ul class="role__keywords">
+                <li>HTML</li>
+                <li>Javascript</li>
+                <li>CSS</li>
+                <li>Sharepoint</li>
+                <li>XSLT</li>
+                <li>Google Analytics</li>
+                <li>Google Tag Manager</li>
+              </ul>
+            </article>
+            <article class="role">
+              <h4 class="role__org">VIS Communications Ltd</h4>
+
+              <p class="role__meta font--accent">
+                <span class="role__title">Web Designer</span>
+                <span aria-hidden="true" class="visually-hidden">·</span>
+                <span class="role__duration">2000 – 2007</span>
+              </p>
+              <p>
+                Worked across website and web application development during the
+                company’s transition from agency work to education-sector
+                product development. The company was later folded into the
+                research arm of UCAS Media.
+              </p>
+
+              <h5 class="role__subheading">Selected contributions</h5>
+              <ul class="role__list">
+                <li>
+                  Designed and developed application interfaces and branded
+                  themes
+                </li>
+                <li>
+                  Defined project briefs and conducted functional analysis
+                </li>
+                <li>Built database-driven ASP and SQL websites</li>
+                <li>
+                  Developed standards-compliant XHTML/CSS front-end systems
+                </li>
+              </ul>
+              <h5 class="visually-hidden">Tech & Skills Buzzwords</h5>
+              <ul class="role__keywords">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Javascript</li>
+                <li>ASP</li>
+                <li>SQL</li>
+                <li>ActionScript</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel-has-bg panel-has-bg--pink">
+        <div class="panel__image panel__image--sherlock"></div>
+        <div class="grid-wrapper content">
+          <div class="content__header content__header--left content-col">
+            <h2 class="underline-wave">Thinking Cap</h2>
+            <h3>Notes &amp; Musings</h3>
+          </div>
+
+          <div class="content-col">
+            {latestJournalEntry ? (
+        <article class="card">
+          <h3>
+            <a href={latestJournalUrl}>{latestJournalTitle}</a>
+          </h3>
+
+          {latestJournalSummary && <p>{latestJournalSummary}</p>}
+
+        </article>
+      ) : (
+        <p>No journal entries yet.</p>
+      )}
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel--achieve panel-has-bg panel-has-bg--blue">
+        <div class="panel__image panel__image--pope"></div>
+        <div class="grid-wrapper content">
+          <div class="content__header content__header--left content-col">
+            <h2 class="underline-wave">Hi-Hat</h2>
+            <h3>Noteable Achievements</h3>
+            <ul class="achievements-list">
+              <li>
+                Part of a Coventry University team that was Highly Commended at
+                HEIST AWARDS 2010 for ‘Best Innovation and Creative Thinking
+                Campaign’ for the Integrated Use of Emerging Media Platforms
+                Project, which involved early adoption of Apples iTunesU
+                platform and YouTube channel marketing.
+              </li>
+              <li>
+                Educational based careers advise CD-ROM, that I designed and
+                developed while working at VIS Communications called “Moving
+                On”, received a BECTA ICT Excellence Award.
+              </li>
+              <li>
+                When I was 10 I won a competition to design a poster for the
+                “Keep Leicester Tidy” campaign. The poster was mass-produced for
+                use by Leicester City Council. I got my picture in the local
+                paper and I got to lord it over Sean Greenwood - In your face
+                Sean Greenwood!
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+</BaseLayout>
+

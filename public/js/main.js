@@ -5,12 +5,11 @@
 
   const header = document.querySelector(".header");
   const menuTrigger = document.querySelector(".js-menuTrigger");
-  const menuIcon = document.querySelector(".menu-icon");
 
   if (menuTrigger && header) {
     menuTrigger.addEventListener("click", () => {
-      header.classList.toggle("menu-active");
-      if (menuIcon) menuIcon.classList.toggle("toggled");
+      const isOpen = header.classList.toggle("menu-active");
+      menuTrigger.setAttribute("aria-expanded", isOpen);
     });
   }
 

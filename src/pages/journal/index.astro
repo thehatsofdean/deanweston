@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
+import { formatDate } from "../../utils/date";
+
+const posts = (await getCollection("journal", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="The Thinking Cap" preloadImage="/img/sherlock-pop.webp">
+    <section
+        class="panel panel--intro panel-has-bg panel-has-bg--pink panel--centered"
+      >
+        <div class="panel__image panel__image--sherlock"></div>
+        <div class="grid-wrapper content">
+          <h1 class="content-col">
+            <span class="panel-intro__name">Dean Weston</span>
+            <span class="visually-hidden">&thinsp;&mdash;&thinsp;</span>
+            <span class="panel__text--big"
+              >What lies beneath the Thinking Cap</span
+            >
+          </h1>
+        </div>
+      </section>
+    <section class="panel">
+        <div class="grid-wrapper content">
+
+          <div class="content-col">
+            {posts.length === 0 ? (
+        <p>No posts yet.</p>
+      ) : (
+        posts.map((post) => (
+            <article class="article underline-wave">
+              <h2 class="article__heading">
+                <a href={`/journal/${post.slug}/`}>{post.data.title}</a>
+              </h2>
+
+              <p class="article__date">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {formatDate(post.data.pubDate)}
+                </time>
+              </p>
+
+              {post.data.description && (
+                <p class="article__desc">{post.data.description}</p>
+              )}
+            </article>
+          ))
+      )}
+          </div>
+        </div>
+      </section>
+    </BaseLayout>
