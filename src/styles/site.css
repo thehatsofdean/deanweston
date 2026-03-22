@@ -836,7 +836,7 @@ h5 {
   background-color: transparent;
   background-size: 3px 3px;
   background-repeat: repeat;
-  background-image: url("../img/dot.svg");
+  background-image: url("/img/dot.svg");
 }
 
 @media only screen and (min-width: 768px) {
@@ -993,15 +993,15 @@ a:focus-visible {
 }
 
 .achievements-list li:nth-child(1):before {
-  background-image: url(../img/rosette4.svg);
+  background-image: url(/img/rosette4.svg);
 }
 
 .achievements-list li:nth-child(2):before {
-  background-image: url(../img/rosette2.svg);
+  background-image: url(/img/rosette2.svg);
 }
 
 .achievements-list li:nth-child(3):before {
-  background-image: url(../img/rosette3.svg);
+  background-image: url(/img/rosette3.svg);
 }
 
 .achievements-list li:before {
