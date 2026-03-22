@@ -26,7 +26,7 @@ const posts = (await getCollection("journal", ({ data }) => !data.draft))
     <section class="panel">
         <div class="grid-wrapper content">
 
-          <div class="content-col">
+          <div class="content-col content-col--narrow">
             {posts.length === 0 ? (
         <p>No posts yet.</p>
       ) : (

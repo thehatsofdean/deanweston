@@ -1024,7 +1024,6 @@ a:focus-visible {
 .card {
   background-color: color-mix(in srgb, var(--clr-white) 80%, transparent);
   padding: 0.5em 1em;
-  width: 50vw;
   border-radius: 3px;
 }
 
@@ -1036,48 +1035,41 @@ a:focus-visible {
 .footer {
   background-color: var(--clr-slate);
   color: var(--clr-white);
-  padding: 1.5em;
+  padding: 1.5em 1.75em;
   text-transform: uppercase;
   font-family: var(--font-accent);
   font-size: 0.8em;
 }
 
+.footer .content-col {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 @media only screen and (min-width: 768px) {
   .footer {
-    padding: 1.5em 0;
+    padding: 1.5em 4em;
   }
 }
 
-.copyright {
-  float: left;
-}
-.footer .menu {
-  float: right;
-  /* display:block; */
-  display: none;
-  margin-top: 0;
-  text-transform: uppercase;
-  font-family: var(--font-accent);
-  font-size: inherit;
-  font-weight: regular;
-}
-
-.footer .menu ul {
-  padding: 0;
+.social-links {
+  list-style-type: none;
   margin: 0;
+  display: inline-flex;
+  line-height: 0;
 }
 
-.footer .menu-link {
-  padding: 3px 3px 0;
-  color: var(--clr-white);
-  text-decoration: none;
-  border-bottom: 1px solid #f7d5ca;
-  box-shadow: none;
-  cursor: pointer;
+.social-links__link {
+  background: none;
+  padding: 0;
+  margin: 0 0.5em;
+  color: #fff;
 }
 
-.footer .menu-link:hover {
-  color: var(--clr-slate);
+.icon {
+  width: 18px;
+  height: 18px;
 }
 
 .clearfix:before,
