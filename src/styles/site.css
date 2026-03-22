@@ -264,6 +264,8 @@ h5 {
 }
 
 .menu ul {
+  display: inline-flex;
+  padding-inline-start: 0px;
   list-style: none;
 }
 

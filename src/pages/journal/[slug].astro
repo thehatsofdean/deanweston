@@ -7,7 +7,7 @@ export async function getStaticPaths() {
   const posts = await getCollection("journal", ({ data }) => !data.draft);
 
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }));
 }
@@ -17,38 +17,30 @@ const { Content } = await render(post);
 ---
 
 <BaseLayout title={post.data.title} bodyClass="j-entry" preloadImage="/img/sherlock-pop.webp">
-
-
-      <section
-        class="panel panel--intro panel-has-bg panel-has-bg--pink panel--centered"
-      >
-        <div class="panel__image panel__image--sherlock"></div>
-        <div class="grid-wrapper content">
-          <div class="content-col">
-            <h1>
-              <span class="panel-intro__name">{formatDate(post.data.pubDate)}</span>
-              <span class="visually-hidden">&thinsp;&mdash;&thinsp;</span>
-              <span class="panel__text--big"
-                >{post.data.title}</span
-              >
-            </h1>
-          <div class="card card--fixed-bottom">
+  <section class="panel panel--intro panel-has-bg panel-has-bg--pink panel--centered">
+    <div class="panel__image panel__image--sherlock"></div>
+    <div class="grid-wrapper content">
+      <div class="content-col">
+        <h1>
+          <span class="panel-intro__name">{formatDate(post.data.pubDate)}</span>
+          <span class="visually-hidden">&thinsp;&mdash;&thinsp;</span>
+          <span class="panel__text--big">{post.data.title}</span>
+        </h1>
+        <div class="card card--fixed-bottom">
           <span>{post.data.readTime} mins read</span> &ndash;
           <span><a href="/journal">Back to Journal</a></span>
-          </div>
-          </div>
-          
         </div>
-      </section>
-
-
-      <section class="panel">
-        <div class="grid-wrapper content">
-        <div class="content-col content-col--narrow">
-      <article class="j-entry__content prose">
-        <Content />
-      </article>
       </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="grid-wrapper content">
+      <div class="content-col content-col--narrow">
+        <article class="j-entry__content prose">
+          <Content />
+        </article>
       </div>
-      </section>
+    </div>
+  </section>
 </BaseLayout>

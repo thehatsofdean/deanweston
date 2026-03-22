@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/thehatsofdean/deanweston#readme",
   "dependencies": {
-    "astro": "^5.18.0"
-  },
-  "devDependencies": {}
+    "astro": "^6.0.8"
+  }
 }

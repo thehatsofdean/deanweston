@@ -20,7 +20,7 @@ const latestJournalTitle = latestJournalEntry?.data.title;
 const latestJournalSummary =
   latestJournalEntry?.data.description || latestJournalEntry?.data.summary;
 const latestJournalUrl = latestJournalEntry
-  ? `/journal/${latestJournalEntry.slug}/`
+  ? `/journal/${latestJournalEntry.id}/`
   : null;
 ---
 

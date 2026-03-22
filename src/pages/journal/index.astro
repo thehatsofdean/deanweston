@@ -33,7 +33,7 @@ const posts = (await getCollection("journal", ({ data }) => !data.draft))
         posts.map((post) => (
             <article class="article underline-wave">
               <h2 class="article__heading">
-                <a href={`/journal/${post.slug}/`}>{post.data.title}</a>
+                <a href={`/journal/${post.id}/`}>{post.data.title}</a>
               </h2>
 
               <p class="article__date">
