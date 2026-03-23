@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/thehatsofdean/deanweston#readme",
   "dependencies": {
+    "@fontsource/merriweather": "^5.2.11",
+    "@fontsource/oswald": "^5.2.8",
     "astro": "^6.0.8"
   }
 }
