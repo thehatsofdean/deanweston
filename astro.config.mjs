@@ -7,4 +7,7 @@ export default defineConfig({
       minify: true, // or 'esbuild'
     },
   },
+  markdown: {
+    syntaxHighlight: "prism",
+  },
 });

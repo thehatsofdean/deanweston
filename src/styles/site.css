@@ -44,6 +44,23 @@ h5 {
   margin: 1.25em 0 0;
 }
 
+pre {
+  display: block;
+  padding: 0.5rem;
+  background-color: #212121;
+  color: #f7d5ca;
+  border-radius: 3px;
+}
+
+pre code {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+p > code {
+  color: #666;
+}
+
 /* ACCESSIBILITY */
 
 .skip-link {
@@ -1027,6 +1044,11 @@ a:focus-visible {
   background-color: color-mix(in srgb, var(--clr-white) 80%, transparent);
   padding: 0.5em 1em;
   border-radius: 3px;
+}
+
+.card h3,
+.card p {
+  margin: 0.5rem 0;
 }
 
 .card--fixed-bottom {

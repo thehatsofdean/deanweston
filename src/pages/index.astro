@@ -22,6 +22,7 @@ const latestJournalSummary =
 const latestJournalUrl = latestJournalEntry
   ? `/journal/${latestJournalEntry.id}/`
   : null;
+const latestJournalPubDate = latestJournalEntry?.data.pubDate;
 ---
 
 <BaseLayout title="Front-End Developer &amp; Digital Consultant (Higher Education)">
@@ -374,12 +375,20 @@ const latestJournalUrl = latestJournalEntry
 
           <div class="content-col content-col--narrow">
             {latestJournalEntry ? (
-        <article class="card">
+        <article class="card article">
           <h3>
             <a href={latestJournalUrl}>{latestJournalTitle}</a>
           </h3>
+          
+           <p class="article__date">
+            <time datetime={latestJournalPubDate.toISOString()}>
+              {formatDate(latestJournalPubDate)}
+            </time>
+           </p>
 
-          {latestJournalSummary && <p>{latestJournalSummary}</p>}
+           {latestJournalSummary && (
+            <p class="article__desc">{latestJournalSummary}</p>
+           )}
 
         </article>
       ) : (
