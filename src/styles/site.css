@@ -7,7 +7,9 @@
   --clr-ink: #222;
   --clr-blue: #042d93;
   --clr-pink: #f7d5ca;
-  --clr-slate: #909ca7;
+  --clr-slate-light: #becdd0;
+  --clr-slate: #63737e;
+  --clr-slate-dark: #515867;
   --clr-white: #fff;
   --clr-black: #000;
 
@@ -746,7 +748,7 @@ p > code {
   background-blend-mode: color-burn;
   filter: grayscale(100%);
   background-color: var(--clr-pink);
-  opacity: 0.2;
+  opacity: 0.1;
   z-index: -1;
 }
 
@@ -785,7 +787,6 @@ p > code {
 }
 
 .content__header h3 {
-  color: color-mix(in srgb, var(--panel-ink), transparent 45%);
   font-family: "Merriweather", serif;
   text-align: center;
   font-size: 1.2em;
@@ -794,6 +795,14 @@ p > code {
   font-weight: 400;
   color: var(--clr-slate);
   margin-bottom: 0;
+}
+
+.panel-has-bg--pink .content__header h3 {
+  color: var(--clr-slate-dark);
+}
+
+.panel-has-bg--blue .content__header h3 {
+  color: var(--clr-slate-light);
 }
 
 .role__meta {
@@ -930,6 +939,10 @@ a:focus-visible {
   background-size: 100% 100%;
 }
 
+.panel-has-bg--pink a {
+  background-image: linear-gradient(var(--clr-white), var(--clr-white));
+}
+
 .article {
   display: grid;
   grid-template-areas:
@@ -1057,7 +1070,7 @@ a:focus-visible {
 }
 
 .footer {
-  background-color: var(--clr-slate);
+  background-color: var(--clr-slate-dark);
   color: var(--clr-white);
   padding: 1.5em 1.75em;
   text-transform: uppercase;
