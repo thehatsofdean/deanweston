@@ -6,13 +6,37 @@ import { formatDate } from "../../utils/date";
 export async function getStaticPaths() {
   const posts = await getCollection("journal", ({ data }) => !data.draft);
 
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
+  const sortedPosts = [...posts].sort((a, b) => {
+    const dateDiff =
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+
+    if (dateDiff !== 0) return dateDiff;
+
+    return a.id.localeCompare(b.id);
+  });
+
+  return sortedPosts.map((post, index) => {
+    const nextPost =
+      sortedPosts.length > 1
+        ? sortedPosts[(index + 1) % sortedPosts.length]
+        : null;
+
+    return {
+      params: { slug: post.id },
+      props: {
+        post,
+        nextRead: nextPost
+          ? {
+              href: `/journal/${nextPost.id}/`,
+              title: nextPost.data.title,
+            }
+          : null,
+      },
+    };
+  });
 }
 
-const { post } = Astro.props;
+const { post, nextRead } = Astro.props;
 const { Content } = await render(post);
 ---
 
@@ -27,8 +51,7 @@ const { Content } = await render(post);
           <span class="panel__text--big">{post.data.title}</span>
         </h1>
         <div class="card card--fixed-bottom">
-          <span>{post.data.readTime} mins read</span> &ndash;
-          <span><a href="/journal">Back to Journal</a></span>
+          <span>{post.data.readTime} mins read</span>
         </div>
       </div>
     </div>
@@ -39,6 +62,20 @@ const { Content } = await render(post);
       <div class="content-col content-col--narrow">
         <article class="j-entry__content prose">
           <Content />
+          <footer class="j-entry__footer">
+            <nav aria-label="Article navigation">
+              <ul>   
+                {nextRead && (
+                  <li>
+                    <a href={nextRead.href} rel="next">
+                      Next read: {nextRead.title}
+                    </a>
+                  </li>
+                )}
+                  <li><a href="/journal" rel="index">More articles</a></li>
+              </ul>
+            </nav>
+          </footer>
         </article>
       </div>
     </div>

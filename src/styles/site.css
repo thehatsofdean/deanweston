@@ -531,6 +531,37 @@ p > code {
   border-left: 3px solid var(--clr-pink);
 }
 
+.j-entry__footer {
+  margin-top: 3em;
+}
+
+.j-entry__footer ul {
+  list-style-type: none;
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: row;
+  padding: 0;
+}
+
+.j-entry__footer ul > li {
+  border-top: 2px solid var(--clr-pink);
+  border-right: 2px solid var(--clr-pink);
+  border-bottom: 2px solid var(--clr-pink);
+  padding: 2em 1em;
+  flex: 1;
+}
+
+.j-entry__footer ul > li:first-of-type {
+  padding-left: 0;
+  flex: 3;
+}
+
+.j-entry__footer ul > li:last-of-type {
+  padding-right: 0;
+  border-right: none;
+  flex: 1;
+}
+
 @media only screen and (min-width: 768px) {
   .circle {
     width: 100px;
