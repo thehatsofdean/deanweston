@@ -17,8 +17,7 @@ const latestJournalEntry = sortedJournalEntries[0];
 
 // Useful values for template
 const latestJournalTitle = latestJournalEntry?.data.title;
-const latestJournalSummary =
-  latestJournalEntry?.data.description || latestJournalEntry?.data.summary;
+const latestJournalSummary = latestJournalEntry?.data.description;
 const latestJournalUrl = latestJournalEntry
   ? `/journal/${latestJournalEntry.id}/`
   : null;
