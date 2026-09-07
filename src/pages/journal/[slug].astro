@@ -38,9 +38,42 @@ export async function getStaticPaths() {
 
 const { post, nextRead } = Astro.props;
 const { Content } = await render(post);
+
+const articleUrl = `https://www.deanweston.co.uk/journal/${post.id}/`;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": `${articleUrl}#article`,
+  url: articleUrl,
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: new Date(post.data.pubDate).toISOString(),
+  author: {
+    "@id": "https://www.deanweston.co.uk/#person",
+  },
+  publisher: {
+    "@id": "https://www.deanweston.co.uk/#person",
+  },
+  isPartOf: {
+    "@id": "https://www.deanweston.co.uk/#website",
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": articleUrl,
+  },
+};
+
 ---
 
 <BaseLayout title={post.data.title} bodyClass="j-entry" preloadImage="/img/sherlock-pop.webp">
+  
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(articleSchema)}
+  />
+
   <section class="panel panel--intro panel-has-bg panel-has-bg--pink panel--centered">
     <div class="panel__image panel__image--sherlock"></div>
     <div class="grid-wrapper content">
