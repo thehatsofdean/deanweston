@@ -7,17 +7,17 @@ const posts = (await getCollection("journal", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<BaseLayout title="The Thinking Cap" preloadImage="/img/sherlock-pop.webp">
+<BaseLayout title="The Thinking Cap — Journal | Dean Weston" preloadImage="/img/sherlock-pop.webp">
     <section
         class="panel panel--intro panel-has-bg panel-has-bg--pink panel--centered"
       >
         <div class="panel__image panel__image--sherlock"></div>
         <div class="grid-wrapper content">
           <h1 class="content-col">
-            <span class="panel-intro__name">Dean Weston</span>
+            <span class="panel-intro__name">The Thinking Cap</span>
             <span class="visually-hidden">&thinsp;&mdash;&thinsp;</span>
             <span class="panel__text--big"
-              >What lies beneath the Thinking Cap</span
+              >Dean Weston's journal on the web, technology and whatever else escapes my noggin</span
             >
           </h1>
         </div>
