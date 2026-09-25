@@ -778,11 +778,18 @@ p > code {
 
 .panel__image--sherlock {
   background-image: url("/img/sherlock-pop.webp");
+
+  background-blend-mode: darken;
+  background-color: var(--clr-blue);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.panel-has-bg--pink .panel__image--sherlock {
   background-blend-mode: color-burn;
   filter: grayscale(100%);
   background-color: var(--clr-pink);
   opacity: 0.1;
-  z-index: -1;
 }
 
 @media only screen and (max-width: 768px) {
