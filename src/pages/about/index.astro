@@ -29,9 +29,9 @@ const latestJournalPubDate = latestJournalEntry?.data.pubDate;
         <div class="panel__image panel__image--wayne"></div>
         <div class="grid-wrapper content">
           <h1 class="content-col">
-            <span class="panel-intro__name">Under the hat</span>
+            <span class="pre-heading">Under the hat</span>
             <span class="visually-hidden">&thinsp;&mdash;&thinsp;</span>
-            <span class="panel__text--big"
+            <span class="heading--lg"
               >The skills, work history and achievements of Dean Weston</span
             >
           </h1>
@@ -366,33 +366,22 @@ const latestJournalPubDate = latestJournalEntry?.data.pubDate;
       <section class="panel panel-has-bg panel-has-bg--pink">
         <div class="panel__image panel__image--sherlock"></div>
         <div class="grid-wrapper content">
-          <div class="content__header content__header--left content-col">
-            <h2 class="underline-wave">Thinking Cap</h2>
-            <h3>Recent Thoughtlets</h3>
-          </div>
-
-          <div class="content-col content-col--narrow">
+          <div class="content-col">
+            <h2 class="pre-heading">Thinking Cap</h2>
             {latestJournalEntry ? (
-        <article class="article">
-          <h3>
-            <a href={latestJournalUrl}>{latestJournalTitle}</a>
+        <article>
+          <h3 class="heading--lg">
+            {latestJournalTitle}
           </h3>
-          
-           <p class="article__date">
-            <time datetime={latestJournalPubDate.toISOString()}>
-              {formatDate(latestJournalPubDate)}
-            </time>
-           </p>
-
-           {latestJournalSummary && (
-            <p class="article__desc">{latestJournalSummary}</p>
-           )}
-
+          <p><a href={latestJournalUrl} class="cta">Read article</a></p>
         </article>
       ) : (
         <p>No journal entries yet.</p>
       )}
+      <p><a href="./journal" class="cta">More articles</a></p>
           </div>
+
+   
         </div>
       </section>
 
