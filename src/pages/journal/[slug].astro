@@ -96,9 +96,9 @@ const articleSchema = {
       <div class="content-col content-col--narrow">
         <article class="j-entry__content prose underline-wave">
           <Content/>
-
         </article>
-               {nextRead && (
+        <nav class="j-entry__footer-nav">
+        {nextRead && (
                   <h3>
                   Next article: 
                   {nextRead.title}
@@ -112,8 +112,7 @@ const articleSchema = {
                     </Button>
                   </p>
                 )}
-
-
+        </nav>
       </div>
     </div>
   </section>
