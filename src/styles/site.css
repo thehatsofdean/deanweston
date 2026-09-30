@@ -567,7 +567,20 @@ h1.content-col:has(+ *) .heading--lg {
 }
 
 .j-entry__footer-nav {
-  margin-top: 3em;
+  position: relative;
+  padding-block: 3rem;
+  color: #fff;
+}
+
+.j-entry__footer-nav::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: var(--clr-blue);
+  z-index: -1;
 }
 
 @media only screen and (min-width: 768px) {
