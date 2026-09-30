@@ -1,6 +1,7 @@
 ---
 import "../../styles/site.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/Button.astro";
 import { getCollection } from "astro:content";
 import { formatDate } from "../../utils/date";
 
@@ -369,12 +370,18 @@ const latestJournalPubDate = latestJournalEntry?.data.pubDate;
           <h3 class="heading--lg">
             {latestJournalTitle}
           </h3>
-          <p><a href={latestJournalUrl} class="cta">Read article</a></p>
+          <p class="buttons-block">
+            <Button href={latestJournalUrl} variant="blue-fill">
+              Read on
+            </Button>
+            <Button href=./journal variant="blue-fill" type="secondary">
+              More articles
+            </Button>
+          </p>
         </article>
       ) : (
         <p>No journal entries yet.</p>
       )}
-      <p><a href="./journal" class="cta">More articles</a></p>
           </div>
 
    

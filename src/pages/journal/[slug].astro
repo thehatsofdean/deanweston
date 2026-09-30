@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/Button.astro";
 import { getCollection, render } from "astro:content";
 import { formatDate } from "../../utils/date";
 
@@ -93,23 +94,26 @@ const articleSchema = {
   <section class="panel">
     <div class="grid-wrapper content">
       <div class="content-col content-col--narrow">
-        <article class="j-entry__content prose">
-          <Content />
-          <footer class="j-entry__footer">
-            <nav aria-label="Article navigation">
-              <ul>   
-                {nextRead && (
-                  <li>
-                    <a href={nextRead.href} rel="next">
-                      Next read: {nextRead.title}
-                    </a>
-                  </li>
-                )}
-                  <li><a href="/journal" rel="index">More articles</a></li>
-              </ul>
-            </nav>
-          </footer>
+        <article class="j-entry__content prose underline-wave">
+          <Content/>
+
         </article>
+               {nextRead && (
+                  <h3>
+                  Next article: 
+                  {nextRead.title}
+                  </h3>
+                  <p class="buttons-block">  
+                 <Button href={nextRead.href} variant="blue-fill" rel="next">
+                      Read now
+                    </Button>
+                    <Button href=./journal variant="blue-fill" type="secondary">
+                      More articles
+                    </Button>
+                  </p>
+                )}
+
+
       </div>
     </div>
   </section>
