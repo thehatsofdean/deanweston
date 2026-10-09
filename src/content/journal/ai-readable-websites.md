@@ -3,7 +3,6 @@ title: "How to Make Your Website AI-Readable"
 description: "As AI tools become a common way people find information, websites need to be structured so machines can understand, interpret and surface their content clearly."
 pubDate: 2026-03-09
 author: "Dean Weston"
-readTime: "3-4"
 tags: ["AI", "SEO", "Structured Data", "Web Development", "Astro"]
 ---
 

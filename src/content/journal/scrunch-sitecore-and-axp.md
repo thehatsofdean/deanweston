@@ -3,7 +3,6 @@ title: "Scrunch, Sitecore and AXP: When Your Website Isn't Really One Website"
 description: "A look at Sitecore’s Scrunch acquisition and its AXP platform, exploring AI visibility, content architecture, CMS integration and the risks of creating another version of the web."
 pubDate: 2026-09-05
 author: "Dean Weston"
-readTime: "7"
 tags: ["AI", "Content Management", "Web Governance", "Sitecore"]
 ---
 

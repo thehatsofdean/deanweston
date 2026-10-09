@@ -3,7 +3,6 @@ title: "A Weight Off My Website: Reducing the Performance Burden of Google Fonts
 description: "How self-hosting fonts with Astro 6 improved performance, reduced dependencies, and gave me more control."
 pubDate: 2026-03-24
 author: "Dean Weston"
-readTime: "7"
 tags: ["Fonts", "Performance", "Web Development", "Astro"]
 ---
 
