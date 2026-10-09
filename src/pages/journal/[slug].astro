@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Button from "../../components/Button.astro";
 import { getCollection, render } from "astro:content";
 import { formatDate } from "../../utils/date";
+import { calculateReadingTime } from "../../utils/readingTime";
 
 export async function getStaticPaths() {
   const posts = await getCollection("journal", ({ data }) => !data.draft);
@@ -37,10 +38,12 @@ export async function getStaticPaths() {
   });
 }
 
+
 const { post, nextRead } = Astro.props;
 const { Content } = await render(post);
 
 const articleUrl = `https://www.deanweston.co.uk/journal/${post.id}/`;
+const readingTime = calculateReadingTime(post.body ?? "");
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -84,8 +87,16 @@ const articleSchema = {
           <span class="visually-hidden">&thinsp;&mdash;&thinsp;</span>
           <span class="heading--lg">{post.data.title}</span>
         </h1>
-        <div class="card card--fixed-bottom">
-          <span>{post.data.readTime} mins read</span>
+        <div class="read-time">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-clock preview-icon" aria-hidden="true">
+            <path d="M16 22h2a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v2.85"/>
+            <path d="M14 2v5a1 1 0 0 0 1 1h5"/>
+            <path d="M8 14v2.2l1.6 1"/>
+            <circle cx="8" cy="16" r="6"/>
+          </svg>   
+          <span>
+          {readingTime.text}
+          </span>
         </div>
       </div>
     </div>
@@ -94,20 +105,20 @@ const articleSchema = {
   <section class="panel">
     <div class="grid-wrapper content">
       <div class="content-col content-col--narrow">
-        <article class="j-entry__content prose underline-wave">
+        <article class="j-entry__content prose">
           <Content/>
         </article>
         <nav class="j-entry__footer-nav">
         {nextRead && (
-                  <h3>
-                  Next article: 
+                  <h3 class="j-entry__footer-title">
+                  <span class="j-entry__footer-pre-title">Next article:</span>
                   {nextRead.title}
                   </h3>
                   <p class="buttons-block">  
                  <Button href={nextRead.href} variant="pink-fill" rel="next">
                       Read now
                     </Button>
-                    <Button href=./journal variant="pink-fill" type="secondary">
+                    <Button href="../../journal" variant="pink-fill" type="secondary">
                       More articles
                     </Button>
                   </p>

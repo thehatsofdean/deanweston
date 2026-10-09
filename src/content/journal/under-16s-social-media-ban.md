@@ -3,7 +3,6 @@ title: "The Parenting Question Behind the Social Media Ban Debate"
 description: "Calls to ban social media for under-16s are growing in the UK. But does legislation actually solve the real problem, or does it simply outsource difficult parenting decisions?"
 pubDate: 2026-03-14
 author: "Dean Weston"
-readTime: "5-6"
 tags: ["technology", "social media", "parenting", "digital culture", "policy"]
 ---
 
