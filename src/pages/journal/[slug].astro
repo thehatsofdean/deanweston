@@ -108,23 +108,31 @@ const articleSchema = {
         <article class="j-entry__content prose">
           <Content/>
         </article>
-        <nav class="j-entry__footer-nav">
-        {nextRead && (
-                  <h3 class="j-entry__footer-title">
-                  <span class="j-entry__footer-pre-title">Next article:</span>
-                  {nextRead.title}
-                  </h3>
-                  <p class="buttons-block">  
-                 <Button href={nextRead.href} variant="pink-fill" rel="next">
-                      Read now
-                    </Button>
-                    <Button href="../../journal" variant="pink-fill" type="secondary">
-                      More articles
-                    </Button>
-                  </p>
-                )}
-        </nav>
+        
       </div>
     </div>
+  </section>
+  <section class="panel panel-has-bg panel-has-bg--blue">
+    <div class="grid-wrapper content">
+        <div class="content-col content-col--narrow">
+          <nav class="j-entry__footer-nav">
+          {nextRead && (
+                    <h3 class="j-entry__footer-title">
+                    <span class="j-entry__footer-pre-title">Next article:</span>
+                    {nextRead.title}
+                    </h3>
+                    <p class="buttons-block">  
+                  <Button href={nextRead.href} variant="pink-fill" rel="next">
+                        Read now
+                      </Button>
+                      <Button href="../../journal" variant="pink-fill" type="secondary">
+                        More articles
+                      </Button>
+                    </p>
+                  )}
+          </nav>
+        </div>
+      </div>
+      
   </section>
 </BaseLayout>

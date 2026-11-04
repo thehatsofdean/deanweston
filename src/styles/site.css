@@ -566,8 +566,8 @@ h1.content-col:has(+ *) .heading--lg {
   max-width: 80ch;
 }
 
-.j-entry__content {
-  padding-bottom: 3em;
+.j-entry .panel {
+  min-height: unset;
 }
 
 .dropcap:first-letter,
@@ -591,21 +591,7 @@ h1.content-col:has(+ *) .heading--lg {
 }
 
 .j-entry__footer-nav {
-  position: relative;
-  padding-block: 3rem;
   color: #fff;
-  margin-bottom: -4em;
-}
-
-.j-entry__footer-nav::before {
-  content: "";
-  position: absolute;
-  inset-block: 0;
-  left: 50%;
-  width: 100vw;
-  transform: translateX(-50%);
-  background: var(--clr-blue);
-  z-index: -1;
 }
 
 .j-entry__footer-pre-title {
