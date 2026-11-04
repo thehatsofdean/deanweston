@@ -235,6 +235,7 @@ p > code {
 }
 
 .logo {
+  position: relative;
   grid-column: col-start / span 2;
   border-radius: 1000px;
   background-color: var(--clr-white);
@@ -254,6 +255,13 @@ p > code {
     margin-left: var(--grid-gap);
     margin-right: var(--grid-gap);
   }
+}
+
+.logo__link {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  cursor: pointer;
 }
 
 .menu-active {
@@ -705,6 +713,14 @@ h1.content-col:has(+ *) .heading--lg {
 .stetson {
   height: 43.09px;
   background-image: url("/img/hat-stetson.svg");
+}
+
+.logo .hat {
+  transition: translate 0.3s ease;
+}
+
+.logo:hover .hat {
+  translate: 0 -5px;
 }
 
 .che {
